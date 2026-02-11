@@ -74,8 +74,8 @@ def next_step():
 # --- Step 1: Landing ---
 if st.session_state.step == 1:
     st.markdown('<h1 class="fade-in">A Little Surprise 💖</h1>', unsafe_allow_html=True)
-    st.markdown('<h3 class="fade-in">Just for you…</h3>', unsafe_allow_html=True)
-    st.button("Start the magic ✨", on_click=next_step)
+    st.markdown('<h3 class="fade-in">Just for you my love…</h3>', unsafe_allow_html=True)
+    st.button("Start the magic baby ✨", on_click=next_step)
 
 # --- Step 2: Romantic Inputs ---
 elif st.session_state.step == 2:
@@ -84,14 +84,14 @@ elif st.session_state.step == 2:
     st.markdown('<div style="text-align:center; font-size:50px;">🥰</div>', unsafe_allow_html=True)
     miss = st.slider("How much do you miss me today?", 0, 10, 5)
     
-    st.markdown('<div style="text-align:center; font-size:50px;">😂</div>', unsafe_allow_html=True)
-    facetime = st.slider("Rate our FaceTime silliness", 0, 10, 8)
+    st.markdown('<div style="text-align:center; font-size:50px;">❤️</div>', unsafe_allow_html=True)
+    facetime = st.slider("Rate our love for each other", 0, 10, 8)
     
     st.markdown('<div style="text-align:center; font-size:50px;">✈️</div>', unsafe_allow_html=True)
     trips = st.slider("Number of future adventures we’ll go on", 0, 20, 3)
     
     st.markdown('<div style="text-align:center; font-size:50px;">😏</div>', unsafe_allow_html=True)
-    tolerance = st.slider("How much do you put up with my dumbassness?", 0, 100, 90)
+    tolerance = st.slider("How much do you I turn you on?", 0, 100, 90)
     
     st.button("Train the love engine 💖", on_click=next_step)
 
@@ -117,7 +117,7 @@ elif st.session_state.step == 4:
                 '<li><b>Your Smile Score:</b> 100% adorable</li>'
                 '<li><b>My Heart Rate:</b> Accelerated every time I see you</li>'
                 '<li><b>\'mhmm\' Detection:</b> Perfectly cute</li>'
-                '<li><b>Playful Bullying Index:</b> Maximum fun 💗</li>'
+                '<li><b>Turned on level:</b> Maximum</li>'
                 '</ul>', unsafe_allow_html=True)
     st.button("See Final Result 💖", on_click=next_step)
 
@@ -137,4 +137,5 @@ elif st.session_state.step == 6:
     st.balloons()
     st.markdown('<h2 class="fade-in">mhmm. I knew you’d say yes 😏💕</h2>', unsafe_allow_html=True)
     st.markdown('<h3 class="fade-in">Happy early Valentine\'s Day 💖</h3>', unsafe_allow_html=True)
+
 
