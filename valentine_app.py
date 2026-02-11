@@ -10,19 +10,20 @@ st.set_page_config(
     layout="centered"
 )
 
-# --- CSS: Soft pink, fade-in, floating hearts ---
+# --- CSS: Soft pink background, fade-in, floating hearts ---
 st.markdown("""
 <style>
 body {
-    background-color: #ffffff;
+    background-color: #ffe6f0;  /* Soft pastel pink */
     font-family: 'Arial', sans-serif;
     overflow-x: hidden;
+    color: #4d004d;  /* Dark purple text for readability */
 }
 h1, h2, h3 {
-    color: #ff7fbf;
+    color: #ff3385;  /* Darker pink headings */
 }
 .stButton>button {
-    background-color: #ff7fbf;
+    background-color: #ff7fbf;  /* Pink buttons */
     color: white;
     border-radius: 12px;
     height: 3em;
@@ -30,7 +31,7 @@ h1, h2, h3 {
     font-size: 18px;
 }
 .stSlider>div>div>div>div>div>div {
-    background: #ffd4e6;
+    background: #ffd4e6;  /* Soft slider color */
 }
 .fade-in {
     opacity: 0;
@@ -91,7 +92,7 @@ elif st.session_state.step == 2:
     trips = st.slider("Number of future adventures we’ll go on", 0, 20, 3)
     
     st.markdown('<div style="text-align:center; font-size:50px;">😏</div>', unsafe_allow_html=True)
-    tolerance = st.slider("How much do you I turn you on?", 0, 100, 90)
+    tolerance = st.slider("How much do I turn you on?", 0, 100, 90)
     
     st.button("Train the love engine 💖", on_click=next_step)
 
@@ -137,6 +138,3 @@ elif st.session_state.step == 6:
     st.balloons()
     st.markdown('<h2 class="fade-in">mhmm. I knew you’d say yes 😏💕</h2>', unsafe_allow_html=True)
     st.markdown('<h3 class="fade-in">Happy early Valentine\'s Day my love 💖</h3>', unsafe_allow_html=True)
-
-
-
