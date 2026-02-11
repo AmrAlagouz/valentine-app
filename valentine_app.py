@@ -1,16 +1,16 @@
-# valentine_app.py
+# romantic_valentine_app.py
 
 import streamlit as st
 import time
 
 # Page config
 st.set_page_config(
-    page_title="Valentine Decision Model",
+    page_title="Valentine Surprise 💖",
     page_icon="💘",
     layout="centered"
 )
 
-# --- CSS: Apple-style + fade-in + floating hearts ---
+# --- CSS: Soft pink, fade-in, floating hearts ---
 st.markdown("""
 <style>
 body {
@@ -26,7 +26,7 @@ h1, h2, h3 {
     color: white;
     border-radius: 12px;
     height: 3em;
-    width: 220px;
+    width: 240px;
     font-size: 18px;
 }
 .stSlider>div>div>div>div>div>div {
@@ -73,62 +73,68 @@ def next_step():
 
 # --- Step 1: Landing ---
 if st.session_state.step == 1:
-    st.markdown('<h1 class="fade-in">Valentine Decision Model 💘</h1>', unsafe_allow_html=True)
-    st.markdown('<h3 class="fade-in">Advanced emotional analytics since Grade 10</h3>', unsafe_allow_html=True)
-    st.button("Run Analysis", on_click=next_step)
+    st.markdown('<h1 class="fade-in">A Little Surprise 💖</h1>', unsafe_allow_html=True)
+    st.markdown('<h3 class="fade-in">Just for you…</h3>', unsafe_allow_html=True)
+    st.button("Start the magic ✨", on_click=next_step)
 
-# --- Step 2: Inputs ---
+# --- Step 2: Romantic Inputs ---
 elif st.session_state.step == 2:
-    st.markdown('<h2 class="fade-in">Input Parameters</h2>', unsafe_allow_html=True)
-    st.markdown('<h4 class="fade-in">Help train the model by entering your data</h4>', unsafe_allow_html=True)
-
-    miss_texts = st.slider("Number of 'I miss you' texts 📱", 0, 1000, 50)
-    facetime = st.slider("FaceTime chemistry level (1-10)", 1, 10, 8)
-    adventures = st.slider("Future adventures pending ✈️", 0, 50, 5)
-    tolerance = st.slider("Tolerance for my nonsense (1-100)", 0, 100, 90)
-
-    st.button("Train Model", on_click=next_step)
+    st.markdown('<h2 class="fade-in">Help me complete the love survey 💕</h2>', unsafe_allow_html=True)
+    
+    st.markdown('<div style="text-align:center; font-size:50px;">🥰</div>', unsafe_allow_html=True)
+    miss = st.slider("How much do you miss me today?", 0, 10, 5)
+    
+    st.markdown('<div style="text-align:center; font-size:50px;">😂</div>', unsafe_allow_html=True)
+    facetime = st.slider("Rate our FaceTime silliness", 0, 10, 8)
+    
+    st.markdown('<div style="text-align:center; font-size:50px;">✈️</div>', unsafe_allow_html=True)
+    trips = st.slider("Number of future adventures we’ll go on", 0, 20, 3)
+    
+    st.markdown('<div style="text-align:center; font-size:50px;">😏</div>', unsafe_allow_html=True)
+    tolerance = st.slider("How much do you put up with my dumbassness?", 0, 100, 90)
+    
+    st.button("Train the love engine 💖", on_click=next_step)
 
 # --- Step 3: Playful Spinner Messages ---
 elif st.session_state.step == 3:
-    st.markdown('<h2 class="fade-in">Model Running...</h2>', unsafe_allow_html=True)
-    spinner_messages = [
-        "Removing long-distance bias...",
-        "Detecting excessive 'mhmm'...",
-        "Filtering playful insults ('dumbass' detected 💗)...",
-        "Scanning historical embarrassment archives (Grade 10 data found...)"
+    st.markdown('<h2 class="fade-in">Running the Love Engine...</h2>', unsafe_allow_html=True)
+    spinner_msgs = [
+        "Counting all the times you made me smile…",
+        "Measuring your perfect mhmm 😍",
+        "Checking playful insults (‘dumbass’ detected 💕)…",
+        "Recalling my most embarrassing Grade 10 moment… for you"
     ]
     placeholder = st.empty()
-    for msg in spinner_messages:
+    for msg in spinner_msgs:
         placeholder.markdown(f'<p class="fade-in">{msg}</p>', unsafe_allow_html=True)
         time.sleep(1.5)
-    st.button("See Mini Results", on_click=next_step)
+    st.button("See Mini Results 💖", on_click=next_step)
 
-# --- Step 4: Mini Results ---
+# --- Step 4: Mini Cute Stats ---
 elif st.session_state.step == 4:
-    st.markdown('<h2 class="fade-in">Mini Results 📊</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 class="fade-in">Mini Love Stats 📊</h2>', unsafe_allow_html=True)
     st.markdown('<ul class="fade-in">'
-                '<li><b>Embarrassment Recovery Score:</b> Legendary growth since Grade 10</li>'
-                '<li><b>Flirtation Confidence:</b> Slightly improved</li>'
-                '<li><b>\'mhmm\' Frequency:</b> Statistically adorable</li>'
-                '<li><b>Playful Bullying Index:</b> Healthy & stable</li>'
+                '<li><b>Your Smile Score:</b> 100% adorable</li>'
+                '<li><b>My Heart Rate:</b> Accelerated every time I see you</li>'
+                '<li><b>\'mhmm\' Detection:</b> Perfectly cute</li>'
+                '<li><b>Playful Bullying Index:</b> Maximum fun 💗</li>'
                 '</ul>', unsafe_allow_html=True)
-    st.button("Final Result", on_click=next_step)
+    st.button("See Final Result 💖", on_click=next_step)
 
 # --- Step 5: Emotional Turn ---
 elif st.session_state.step == 5:
     st.markdown('<h2 class="fade-in">Final Analysis 💗</h2>', unsafe_allow_html=True)
-    st.markdown('<p class="fade-in">After reviewing all available data…</p>', unsafe_allow_html=True)
-    st.markdown('<p class="fade-in">Including questionable Grade 10 decisions…</p>', unsafe_allow_html=True)
+    st.markdown('<p class="fade-in">After counting all the laughs, silly moments, and mhmm’s…</p>', unsafe_allow_html=True)
+    st.markdown('<p class="fade-in">I only ever choose you 💖</p>', unsafe_allow_html=True)
+    
     time.sleep(1.5)
-    st.markdown('<h1 class="fade-in">Choosing you. Every time. 💖</h1>', unsafe_allow_html=True)
-    st.markdown('<h3 class="fade-in">Final Classification: VALENTINE 💘</h3>', unsafe_allow_html=True)
-    st.markdown('<h4 class="fade-in">Confidence: 100%</h4>', unsafe_allow_html=True)
-    if st.button("Will you be my Valentine, dumbass?"):
+    st.markdown('<h1 class="fade-in">💘 Will you be my Valentine?</h1>', unsafe_allow_html=True)
+    if st.button("Yes, of course! 😏💕"):
         next_step()
 
-# --- Step 6: Confetti + Confirmation ---
+# --- Step 6: Confetti + Hearts ---
 elif st.session_state.step == 6:
     st.balloons()
-    st.markdown('<h2 class="fade-in">mhmm. I thought so. 😏</h2>', unsafe_allow_html=True)
-    st.markdown('<h3 class="fade-in">Happy early Valentine\'s Day 💕</h3>', unsafe_allow_html=True)
+    st.markdown('<h2 class="fade-in">mhmm. I knew you’d say yes 😏💕</h2>', unsafe_allow_html=True)
+    st.markdown('<h3 class="fade-in">Happy early Valentine\'s Day 💖</h3>', unsafe_allow_html=True)
+
