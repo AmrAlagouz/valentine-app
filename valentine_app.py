@@ -75,7 +75,7 @@ def next_step():
 # --- Step 1: Landing ---
 if st.session_state.step == 1:
     st.markdown('<h1 class="fade-in">A Little Surprise 💖</h1>', unsafe_allow_html=True)
-    st.markdown('<h3 class="fade-in">Just for you my love…</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 class="fade-in">Just for you y love…</h3>', unsafe_allow_html=True)
     st.button("Start the magic baby ✨", on_click=next_step)
 
 # --- Step 2: Romantic Inputs ---
@@ -147,5 +147,6 @@ elif st.session_state.step == 6:
     
     st.markdown('<h2 class="fade-in">mhmm. I knew you’d say yes 😏💕</h2>', unsafe_allow_html=True)
     st.markdown('<h3 class="fade-in">Happy early Valentine\'s Day my love 💖</h3>', unsafe_allow_html=True)
+
 
 
