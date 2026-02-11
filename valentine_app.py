@@ -3,25 +3,31 @@
 import streamlit as st
 import time
 
-# Page config
+# --- Force Light Mode and Page Config ---
 st.set_page_config(
     page_title="Valentine Surprise 💖",
     page_icon="💘",
-    layout="centered"
+    layout="centered",
+    initial_sidebar_state="collapsed"
 )
 
-# --- CSS: Soft pink background, fade-in, floating hearts ---
+# --- CSS: Soft pink everywhere, fade-in, floating hearts ---
 st.markdown("""
 <style>
-body {
-    background-color: #ffe6f0;  /* Soft pastel pink */
-    font-family: 'Arial', sans-serif;
-    overflow-x: hidden;
-    color: #4d004d;  /* Dark purple text for readability */
+/* Main background & text */
+body, [data-testid="stAppViewContainer"], 
+[data-testid="stToolbar"], [data-testid="stHeader"], 
+[data-testid="stSidebar"] {
+    background-color: #ffe6f0 !important;  /* Soft pastel pink */
+    color: #4d004d !important;             /* Dark purple text */
 }
+
+/* Headings */
 h1, h2, h3 {
     color: #ff3385;  /* Darker pink headings */
 }
+
+/* Buttons */
 .stButton>button {
     background-color: #ff7fbf;  /* Pink buttons */
     color: white;
@@ -30,9 +36,13 @@ h1, h2, h3 {
     width: 240px;
     font-size: 18px;
 }
+
+/* Sliders */
 .stSlider>div>div>div>div>div>div {
-    background: #ffd4e6;  /* Soft slider color */
+    background: #ffd4e6;  /* Soft slider track */
 }
+
+/* Fade-in animation */
 .fade-in {
     opacity: 0;
     animation: fadeIn 1.5s forwards;
@@ -40,24 +50,27 @@ h1, h2, h3 {
 @keyframes fadeIn {
     to { opacity: 1; }
 }
+
+/* Floating hearts */
 .heart {
     position: fixed;
-    font-size: 24px;
-    animation: floatUp 5s linear infinite;
     pointer-events: none;
+    animation: floatUp 5s linear infinite;
 }
 @keyframes floatUp {
     0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
     100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
 }
 </style>
+
+<!-- Heart creation JS -->
 <script>
 function createHeart() {
     const heart = document.createElement("div");
     heart.className = "heart";
     heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.style.fontSize = (12 + Math.random()*36) + "px"; /* random size */
-    heart.style.animationDuration = (2 + Math.random()*4) + "s"; /* random speed */
+    heart.style.fontSize = (12 + Math.random()*36) + "px";  /* Random size */
+    heart.style.animationDuration = (2 + Math.random()*4) + "s";  /* Random speed */
     heart.innerHTML = "❤️";
     document.body.appendChild(heart);
     setTimeout(()=>heart.remove(), 6000);
@@ -75,7 +88,7 @@ def next_step():
 # --- Step 1: Landing ---
 if st.session_state.step == 1:
     st.markdown('<h1 class="fade-in">A Little Surprise 💖</h1>', unsafe_allow_html=True)
-    st.markdown('<h3 class="fade-in">Just for you y love…</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 class="fade-in">Just for you my love…</h3>', unsafe_allow_html=True)
     st.button("Start the magic baby ✨", on_click=next_step)
 
 # --- Step 2: Romantic Inputs ---
@@ -136,10 +149,10 @@ elif st.session_state.step == 5:
 # --- Step 6: Enhanced Heart Explosion + Confetti ---
 elif st.session_state.step == 6:
     st.balloons()
-    # Trigger multiple hearts for explosion effect
+    # Create multiple hearts for explosion effect
     st.markdown("""
     <script>
-    for(let i=0;i<40;i++){  /* create 40 hearts */
+    for(let i=0;i<50;i++){  /* 50 hearts for more magical effect */
         createHeart();
     }
     </script>
@@ -147,6 +160,3 @@ elif st.session_state.step == 6:
     
     st.markdown('<h2 class="fade-in">mhmm. I knew you’d say yes 😏💕</h2>', unsafe_allow_html=True)
     st.markdown('<h3 class="fade-in">Happy early Valentine\'s Day my love 💖</h3>', unsafe_allow_html=True)
-
-
-
