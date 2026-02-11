@@ -56,12 +56,12 @@ function createHeart() {
     const heart = document.createElement("div");
     heart.className = "heart";
     heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+    heart.style.fontSize = (12 + Math.random()*36) + "px"; /* random size */
+    heart.style.animationDuration = (2 + Math.random()*4) + "s"; /* random speed */
     heart.innerHTML = "❤️";
     document.body.appendChild(heart);
     setTimeout(()=>heart.remove(), 6000);
 }
-setInterval(createHeart, 500);
 </script>
 """, unsafe_allow_html=True)
 
@@ -133,8 +133,19 @@ elif st.session_state.step == 5:
     if st.button("Yes, of course! 😏💕"):
         next_step()
 
-# --- Step 6: Confetti + Hearts ---
+# --- Step 6: Enhanced Heart Explosion + Confetti ---
 elif st.session_state.step == 6:
     st.balloons()
+    # Trigger multiple hearts for explosion effect
+    st.markdown("""
+    <script>
+    for(let i=0;i<40;i++){  /* create 40 hearts */
+        createHeart();
+    }
+    </script>
+    """, unsafe_allow_html=True)
+    
     st.markdown('<h2 class="fade-in">mhmm. I knew you’d say yes 😏💕</h2>', unsafe_allow_html=True)
     st.markdown('<h3 class="fade-in">Happy early Valentine\'s Day my love 💖</h3>', unsafe_allow_html=True)
+
+
