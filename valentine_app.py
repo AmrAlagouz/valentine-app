@@ -136,6 +136,7 @@ elif st.session_state.step == 5:
 elif st.session_state.step == 6:
     st.balloons()
     st.markdown('<h2 class="fade-in">mhmm. I knew you’d say yes 😏💕</h2>', unsafe_allow_html=True)
-    st.markdown('<h3 class="fade-in">Happy early Valentine\'s Day 💖</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 class="fade-in">Happy early Valentine\'s Day my love 💖</h3>', unsafe_allow_html=True)
+
 
 
