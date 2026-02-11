@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# --- CSS: Soft pink everywhere, fade-in, floating hearts ---
+# --- CSS: Soft pink background, fade-in, floating hearts ---
 st.markdown("""
 <style>
 /* Main background & text */
@@ -135,7 +135,7 @@ elif st.session_state.step == 4:
                 '</ul>', unsafe_allow_html=True)
     st.button("See Final Result 💖", on_click=next_step)
 
-# --- Step 5: Emotional Turn ---
+# --- Step 5: Emotional Turn with Yes/No trap ---
 elif st.session_state.step == 5:
     st.markdown('<h2 class="fade-in">Final Analysis 💗</h2>', unsafe_allow_html=True)
     st.markdown('<p class="fade-in">After counting all the laughs, silly moments, and mhmm’s…</p>', unsafe_allow_html=True)
@@ -143,8 +143,16 @@ elif st.session_state.step == 5:
     
     time.sleep(1.5)
     st.markdown('<h1 class="fade-in">💘 Will you be my Valentine?</h1>', unsafe_allow_html=True)
-    if st.button("Yes, of course! 😏💕"):
-        next_step()
+    
+    # Yes / No buttons in columns
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("Yes, of course! 😏💕"):
+            next_step()
+    with col2:
+        if st.button("No 😢"):
+            st.error("🚨 ERROR: Love not recognized. Please try again…")
+            st.warning("💖 Hint: Only the correct answer unlocks Valentine magic.")
 
 # --- Step 6: Enhanced Heart Explosion + Confetti ---
 elif st.session_state.step == 6:
@@ -152,7 +160,7 @@ elif st.session_state.step == 6:
     # Create multiple hearts for explosion effect
     st.markdown("""
     <script>
-    for(let i=0;i<50;i++){  /* 50 hearts for more magical effect */
+    for(let i=0;i<50;i++){  /* 50 hearts for magical effect */
         createHeart();
     }
     </script>
@@ -160,3 +168,4 @@ elif st.session_state.step == 6:
     
     st.markdown('<h2 class="fade-in">mhmm. I knew you’d say yes 😏💕</h2>', unsafe_allow_html=True)
     st.markdown('<h3 class="fade-in">Happy early Valentine\'s Day my love 💖</h3>', unsafe_allow_html=True)
+
